@@ -23,6 +23,15 @@ INSERT INTO user_date
     
 select * from user_date;
 
+select created_at, str_to_date(created_at, '%d.%m.%Y' '%T') as date_new
+from user_date;
+
+Alter table user_date
+add date_new datetime;
+Update user_date set date_new = str_to_date(created_at, '%d.%m.%Y' '%T');
+
+select * from user_date;
+
 -- 3_task
 
 select id, `value`
@@ -89,14 +98,7 @@ from values_test;
 -- ----------------------------- 
 
 
-select created_at, str_to_date(created_at, '%d.%m.%Y' '%T') as date_new
-from user_date;
 
-Alter table user_date
-add date_new datetime;
-Update user_date set date_new = str_to_date(created_at, '%d.%m.%Y' '%T');
-
-select * from user_date;
 
 
 
